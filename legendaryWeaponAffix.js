@@ -1,3 +1,5 @@
+//Below is the original code. It shouldn't be directly modified, only moved where you need it. For organizational purposes, of course. Do what you want.
+
 random = (arr) => {
     return arr[Math.floor(Math.random()*arr.length)]
 }
@@ -12,7 +14,9 @@ legendaryWeaponGenerator = () => {
     
     let type = (random([true, false])) ? bladed : blunt
     let weapon = (type === blunt) ? bluntType : bladedType
-    return `${type} ${adjective} ${weapon} of ${suffix}`
+    let legendaryweapon = `${type} ${adjective} ${weapon} of ${suffix}`
+    return legendaryweapon
+
 }
 
 console.log(legendaryWeaponGenerator())

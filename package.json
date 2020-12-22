@@ -1,0 +1,26 @@
+{
+  "name": "legendary-weapon-generator",
+  "version": "1.0.0",
+  "description": "Currently, this will generate your weapon as a string.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zheckert/legendary-weapon-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zheckert/legendary-weapon-generator/issues"
+  },
+  "homepage": "https://github.com/zheckert/legendary-weapon-generator#readme"
+}
