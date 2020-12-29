@@ -5,6 +5,8 @@ const mongoose = require("mongoose")
 
 //I'm not sure if I want to move all the randomizer attributes into the database. Maybe I should? For now they stay where they are.
 
+//make it auth friendly- have the tool available to all, just generating stuff. Also have a user-specific page with saved names or something?
+
 app.use(express.json())
 app.use(morgan("dev"))
 

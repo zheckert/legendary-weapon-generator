@@ -13,9 +13,27 @@ weaponRouter.get("/", (req, res, next) => {
 })
 
 weaponRouter.post("/", (req, res, next) => {
-    const newWeapon
-
-    //TODO: Come up with better shorthand, lwg is so freaking confusing and doesn't pluralize well. You need to find a better one. maybe just weapon? it's boring but we'll know what it is maybe.
+    const newWeapon = new Weapon(req.body)
+    newWeapon.save((error, savedWeapon) => {
+        if(error){
+            res.status(500)
+            return next(error)
+        }
+        return res.status(200).send(savedWeapon)
+    })
 })
 
-weaponRouter.delete()
+weaponRouter.delete("/weaponId", (req, res, next) => {
+    Weapon.findOneAndDelete(
+        { _id: req.params.weaponId },
+        (error, deletedWeapon) => {
+            if(error){
+                res.status(500)
+                return next(weapon)
+            }
+            return res.status(200).send(`"${deletedWeapon.type}" removed.`)
+        }
+    )
+})
+
+module.exports = weaponRouter
