@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react"
-
-import { Generator } from "./components/Generator"
-
-//wrap all functions into context and move them out of here.
+import { Current } from "./components/Current"
+import { Prior } from "./components/Prior"
 
 export const App = () => {
-  const [weapons, setWeapons] = useState([])
-
-  
   return(
-    <div>
-      <Generator />
-    </div>
+    <>
+      <div>
+        <Current />
+      </div>
+      <div>
+        <Prior />
+      </div>
+    </>
   )
 }
