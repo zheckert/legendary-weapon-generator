@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "./components/index"
 const Context = React.createContext()
 
 export const ContextProvider = (props) => {
-    const Generator = () => {
+
+    const [weapons, setWeapons] = useState("")
+
+    const generator = () => {
         let random = (arr) => {
             return arr[Math.floor(Math.random()*arr.length)]
         }
@@ -17,11 +20,11 @@ export const ContextProvider = (props) => {
         
         let type = (random([true, false])) ? bladed : blunt
         let weapon = (type === blunt) ? bluntType : bladedType
-        let legendaryWeapon = `${type} ${adjective} ${weapon} of ${suffix}`
+        setWeapons(`${type} ${adjective} ${weapon} of ${suffix}`)
     }
 
     return(
-        <Context.Provider value={{Generator}}>
+        <Context.Provider value={{generator, weapons}}>
             {props.children}
         </Context.Provider>
     )
