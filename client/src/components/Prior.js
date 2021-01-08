@@ -2,11 +2,11 @@ import React, { useContext } from "react"
 import { Context } from "../context"
 
 export const Prior = () => {
-    const {favorite} = useContext(Context)
-
+    const {favorites} = useContext(Context)
+    let savedFavorites = favorites.map(fav => <div>{fav.name}</div>)
     return(
         <div>
-            {favorite}
+            {savedFavorites}
         </div>
     )
 }

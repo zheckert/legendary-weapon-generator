@@ -1,3 +1,3 @@
-Currently, this will generate your weapon as a string.
+This is a full-stack app for generating goofy fantasy weapons and saving your favorites. 
 
-Future updates will instantiate a class instead.
+Collect 'em all(?)!

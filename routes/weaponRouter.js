@@ -13,13 +13,14 @@ weaponRouter.get("/", (req, res, next) => {
 })
 
 weaponRouter.post("/", (req, res, next) => {
+    // console.log(req.bod)y
     const newWeapon = new Weapon(req.body)
     newWeapon.save((error, savedWeapon) => {
         if(error){
             res.status(500)
             return next(error)
         }
-        return res.status(200).send(savedWeapon)
+        return res.status(201).send(savedWeapon)
     })
 })
 

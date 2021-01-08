@@ -10,7 +10,7 @@ const mongoose = require("mongoose")
 app.use(express.json())
 app.use(morgan("dev"))
 
-mongoose.connect("mongodb://localhost:207017/weapondb",
+mongoose.connect("mongodb://localhost:27017/weapondb",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -18,7 +18,9 @@ mongoose.connect("mongodb://localhost:207017/weapondb",
         useFindAndModify: false
     },
     () => console.log("Connected to database")
-)
+    )
+    
+    
 
 app.use("/weapon", require("./routes/weaponRouter"))
 
