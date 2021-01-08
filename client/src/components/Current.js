@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Context } from "../context"
 
 export const Current = (props) => {
-    const {generator, weapons} = useContext(Context)
+    const {weapons, generator, addFavorite} = useContext(Context)
 
     return(
         <>
@@ -11,6 +11,7 @@ export const Current = (props) => {
         </div>
             <div>
                 <button onClick={() => generator()}>Generate</button>
+                <button onClick={() => addFavorite()}>Save to Favorites</button>
             </div>
         </>
     )
