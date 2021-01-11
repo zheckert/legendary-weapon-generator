@@ -13,7 +13,6 @@ weaponRouter.get("/", (req, res, next) => {
 })
 
 weaponRouter.post("/", (req, res, next) => {
-    // console.log(req.bod)y
     const newWeapon = new Weapon(req.body)
     newWeapon.save((error, savedWeapon) => {
         if(error){
@@ -24,7 +23,7 @@ weaponRouter.post("/", (req, res, next) => {
     })
 })
 
-weaponRouter.delete("/weaponId", (req, res, next) => {
+weaponRouter.delete("/:weaponId", (req, res, next) => {
     Weapon.findOneAndDelete(
         { _id: req.params.weaponId },
         (error, deletedWeapon) => {
@@ -32,7 +31,7 @@ weaponRouter.delete("/weaponId", (req, res, next) => {
                 res.status(500)
                 return next(weapon)
             }
-            return res.status(200).send(`"${deletedWeapon.type}" removed.`)
+            return res.status(200).send(`"${deletedWeapon.name}" removed.`)
         }
     )
 })

@@ -7,7 +7,7 @@ const Context = React.createContext()
 //next steps- 
 // apply a key to every generated weapon
 // make a delete button for each instantiated weapon and a corresponding function
-// currently weapon types are backwards (i.e. blunt weapon prefixes are being applied to bladed weapons) EZPZ FIX <=
+// Prevent duplicate weapons from existing 
 
 export const ContextProvider = (props) => {
 
@@ -32,18 +32,36 @@ export const ContextProvider = (props) => {
         setWeapons(final)
     }
 
+    const getWeapons = () => {
+        axios.get("/weapon")
+            .then(response => setFavorites(response.data))
+            .catch(error => console.log(error))
+    }
+
     const addFavorites = (addFavorite) => {
-        console.log(addFavorite)
         axios.post("/weapon", {name: addFavorite})
             .then(response => {
-                console.log(response.data)
-                setFavorites(prevFavorites => [...prevFavorites, response.data])
+                console.log(response.data.name)
+                if(favorites.includes(response.data.name)){
+                    console.log("It's already here!")
+                }else{
+                    setFavorites(prevFavorites => [...prevFavorites, response.data])
+                }
+                // setFavorites(prevFavorites => [...prevFavorites, response.data])
+            })
+            .catch(error => console.log(error))
+    }
+
+    const deleteWeapon = (weaponId) => {
+        axios.delete(`/weapon/${weaponId}`)
+            .then(response => {
+                setFavorites(prevFavorites => prevFavorites.filter(weapon => weapon._id !== weaponId))
             })
             .catch(error => console.log(error))
     }
 
     return(
-        <Context.Provider value={{weapons, favorites, generator, addFavorites}}>
+        <Context.Provider value={{weapons, favorites, generator, getWeapons, addFavorites, deleteWeapon}}>
             {props.children}
         </Context.Provider>
     )

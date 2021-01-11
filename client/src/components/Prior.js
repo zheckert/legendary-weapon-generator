@@ -1,12 +1,22 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Context } from "../context"
+import { Favorite } from "./Favorite"
 
 export const Prior = () => {
-    const {favorites} = useContext(Context)
-    let savedFavorites = favorites.map(fav => <div>{fav.name}</div>)
-    return(
+    const {favorites, getWeapons} = useContext(Context)
+
+    useEffect(() => {
+        getWeapons()
+    }, [getWeapons])
+
+    return(        
         <div>
-            {savedFavorites}
+            {favorites.map(weapon => 
+                <Favorite
+                    {...weapon}
+                    key={weapon._id}
+                />
+            )}
         </div>
     )
 }
