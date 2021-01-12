@@ -39,12 +39,15 @@ export const ContextProvider = (props) => {
     }
 
     const addFavorites = (addFavorite) => {
-        axios.post("/weapon", {name: addFavorite})
-        .then(response => {
-            if(!favorites.some(fav => fav.name === response.data.name)){
-                setFavorites(prevFavorites => [...prevFavorites, response.data])
-        }})
-        .catch(error => console.log(error))
+        if(favorites.some(fav => fav.name === weapons)){
+            alert("Item is already a favorite!")
+        }else{
+            axios.post("/weapon", {name: addFavorite})
+            .then(response => {
+                setFavorites(prevFavorites => [...prevFavorites, response.data])      
+            })  
+            .catch(error => console.log(error))
+        }
     }
 
     const deleteWeapon = (weaponId) => {
