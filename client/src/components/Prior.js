@@ -9,8 +9,12 @@ export const Prior = () => {
         getWeapons()
     }, [getWeapons])
 
-    return(        
-        <div>
+    return(     
+        <>   
+        <div className="headerClass">
+            <h2>Favorites</h2>
+        </div>
+        <div className="gridClass">
             {favorites.map(weapon => 
                 <Favorite
                     {...weapon}
@@ -18,5 +22,6 @@ export const Prior = () => {
                 />
             )}
         </div>
+        </>
     )
 }

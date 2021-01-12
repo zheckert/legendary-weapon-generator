@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.weaponDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  border: 2px solid black;
+  border-radius: 2px;
+  height: 50px;
+  margin: 12px;
+}
+
+.headerClass {
+  display: flex;
+  justify-content: center;
+}
+
+.gridClass{
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 10px 10px 10px 10px;
+}
+
+.weaponOrganizer{
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 20px;
+}

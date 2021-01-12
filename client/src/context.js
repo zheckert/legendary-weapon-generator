@@ -2,12 +2,9 @@ import React, { useState } from "react"
 import axios from "axios"
 import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "./components/index"
 
-const Context = React.createContext()
+//what if we linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
 
-//next steps- 
-// apply a key to every generated weapon
-// make a delete button for each instantiated weapon and a corresponding function
-// Prevent duplicate weapons from existing 
+const Context = React.createContext()
 
 export const ContextProvider = (props) => {
 
@@ -40,7 +37,7 @@ export const ContextProvider = (props) => {
 
     const addFavorites = (addFavorite) => {
         if(favorites.some(fav => fav.name === weapons)){
-            alert("Item is already a favorite!")
+            alert("Weapon is already a favorite!")
         }else{
             axios.post("/weapon", {name: addFavorite})
             .then(response => {
