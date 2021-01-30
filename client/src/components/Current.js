@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Context } from "../context"
+import { Context } from "./context/context"
 
 
 export const Current = () => {

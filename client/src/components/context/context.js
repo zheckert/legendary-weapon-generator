@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "./components/index"
+import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "../index"
 
 //what if we linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
 

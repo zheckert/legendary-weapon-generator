@@ -3,6 +3,7 @@ const express = require("express")
 const app = express()
 const morgan = require("morgan")
 const mongoose = require("mongoose")
+const expressJwt = require("express-jwt")
 const path = require("path")
 
 const port = process.env.PORT || 9001
@@ -15,7 +16,8 @@ app.use(express.json())
 app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-mongoose.connect(process.env.MONGODB_URI,
+// mongoose.connect(process.env.MONGODB_URI,
+mongoose.connect("mongodb://localhost:27017/weaponsdb",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -24,13 +26,19 @@ mongoose.connect(process.env.MONGODB_URI,
     },
     () => console.log("Connected to database")
     )
-    
-app.use("/weapon", require("./routes/weaponRouter"))
 
-app.use((error, req, res, next) => {
+app.use("/auth", require("./routes/authRouter"))
+app.use("/api", expressJwt( {secret: process.env.SECRET, algorithms: ['HS256'] }))
+app.use("/api/weapon", require("./routes/weaponRouter"))
+
+app.use((error, request, response, next) => {
     console.log(error)
-    return res.send({errorMessage: error.message})
+    if(error.name === "UnauthorizedError"){
+        response.status(error.status)
+    }
+    return response.send({errorMessage: error.message})
 })
+
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));

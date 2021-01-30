@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { Context } from "../context"
+import { Context } from "./context/context"
 import { Favorite } from "./Favorite"
 
 export const Prior = () => {

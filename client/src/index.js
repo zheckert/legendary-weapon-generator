@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom"
 import './index.css';
 import {App} from './App';
-import { ContextProvider } from './context';
+import { ContextProvider } from './components/context/context';
+import { UserProvider } from './components/context/UserProvider';
+
 
 ReactDOM.render(
-    <ContextProvider>
-      <App />
-    </ContextProvider>,
+  <BrowserRouter>
+    <UserProvider>
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </UserProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );

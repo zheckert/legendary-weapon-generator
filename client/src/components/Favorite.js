@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Context } from "../context"
+import { Context } from "./context/context"
 
 export const Favorite = (props) => {
     const {deleteWeapon} = useContext(Context)

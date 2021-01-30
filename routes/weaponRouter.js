@@ -1,6 +1,6 @@
 const express = require("express")
 const weaponRouter = express.Router()
-const Weapon = require("../client/models/weapon")
+const Weapon = require("../models/weapon")
 
 weaponRouter.get("/", (req, res, next) => {
     Weapon.find((error, weapons) => {
@@ -31,7 +31,7 @@ weaponRouter.delete("/:weaponId", (req, res, next) => {
                 res.status(500)
                 return next(weapon)
             }
-            return res.status(200).send(`"${deletedWeapon.name}" removed.`)
+            return res.status(201).send(`"${deletedWeapon.name}" removed.`)
         }
     )
 })
