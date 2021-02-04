@@ -4,7 +4,6 @@ import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, su
 
 //what if we linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
 
-
 const userAxios = axios.create()
 
 userAxios.interceptors.request.use(config => {
@@ -57,7 +56,7 @@ export const ContextProvider = (props) => {
     }
 
     const deleteWeapon = (weaponId) => {
-        userAxios.delete(`/weapon/${weaponId}`)
+        userAxios.delete(`/api/weapon/${weaponId}`)
             .then(response => {
                 setFavorites(prevFavorites => prevFavorites.filter(weapon => weapon._id !== weaponId))
             })

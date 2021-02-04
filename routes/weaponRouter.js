@@ -26,7 +26,6 @@ weaponRouter.get("/user", (request, response, next) => {
 })
 
 weaponRouter.post("/", (req, res, next) => {
-    console.log(req.body)
     req.body.user = req.user._id
     const newWeapon = new Weapon(req.body)
     newWeapon.save((error, savedWeapon) => {
