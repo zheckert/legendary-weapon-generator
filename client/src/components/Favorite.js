@@ -3,7 +3,7 @@ import { Context } from "./context/context"
 
 export const Favorite = (props) => {
     const {deleteWeapon} = useContext(Context)
-
+    
     return(
         <div className="weaponOrganizer">
             <div className="headerClass">

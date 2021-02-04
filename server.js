@@ -40,9 +40,9 @@ app.use((error, request, response, next) => {
 })
 
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 
 app.listen(port, () => {
     console.log("The server is running on Port 9001")
