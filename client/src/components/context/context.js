@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "../index"
 
-//what if we linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
+//what if I linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
 
 const userAxios = axios.create()
 

@@ -7,7 +7,7 @@ export const Current = () => {
     const id = JSON.parse(user)._id
 
     return(
-        <div>
+        <div className="centerClass">
             <div className="headerClass">
                 <h1>Ye Olde Weapon Generator</h1>
             </div>

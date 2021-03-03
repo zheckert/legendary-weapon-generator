@@ -15,7 +15,7 @@ export const Profile = () => {
                 <button onClick={() => addFavorites(weapons)}>Save to Favorites</button>
                 <button onClick={() => generator()}>Generate!</button>  
             </div> */}
-            <div>
+            <div className="publicClass">
                 <Current />
             </div>
             <div>
