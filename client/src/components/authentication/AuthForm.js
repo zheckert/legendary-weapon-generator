@@ -1,4 +1,5 @@
 import React from "react"
+import { Button } from "@material-ui/core"
 
 export const AuthForm = (props) => {
     const {
@@ -30,6 +31,8 @@ export const AuthForm = (props) => {
                 onChange={handleChange}
                 placeholder="Password"
             />
+            {/* material ui button needs some work here */}
+            <Button>{ buttonText }</Button>
             <button>{ buttonText }</button>
             <p>{errorMessage}</p>
         </form>

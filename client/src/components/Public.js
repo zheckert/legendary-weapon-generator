@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Context } from "./context/context"
+import { Button } from "@material-ui/core"
 
 export const Public = () => {
     const { generator, weapon } = useContext(Context)
@@ -13,7 +14,7 @@ export const Public = () => {
                 {weapon}
             </div>
             <div>
-                <button onClick={() => generator()}>Generate!</button>
+                <Button onClick={() => generator()}>Generate!</Button>
             </div>
             {/* This will be used when I integrate the project with an api!!!<div>
                 <button>Feeling crazy?</button>

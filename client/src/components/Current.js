@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Context } from "./context/context"
+import { Button } from "@material-ui/core"
 
 export const Current = () => {
     const {weapon, generator, addFavorites} = useContext(Context)
@@ -15,8 +16,8 @@ export const Current = () => {
                 {weapon}
             </div>
             <div className="headerClass">
-                <button onClick={() => generator()}>Generate</button>
-                <button onClick={() => addFavorites(weapon, id)}>Save to Favorites</button>
+                <Button onClick={() => generator()}>Generate</Button>
+                <Button onClick={() => addFavorites(weapon, id)}>Save to Favorites</Button>
             </div>
         </div>
     )

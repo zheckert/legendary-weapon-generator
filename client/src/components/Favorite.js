@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Context } from "./context/context"
+import { Button } from "@material-ui/core"
 
 export const Favorite = (props) => {
     const {deleteWeapon} = useContext(Context)
@@ -10,7 +11,7 @@ export const Favorite = (props) => {
                 {props.name}
             </div>
             <div className="headerClass">
-                <button onClick={() => deleteWeapon(props._id)}>Remove from Favorites</button>
+                <Button variant="outlined" color="secondary" onClick={() => deleteWeapon(props._id)}>Remove</Button>
             </div>
         </div>
     )
