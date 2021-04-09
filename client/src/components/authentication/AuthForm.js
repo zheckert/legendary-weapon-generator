@@ -1,6 +1,8 @@
 import React from "react"
 import { Button } from "@material-ui/core"
 
+import AppBar from "@material-ui/core/AppBar"
+
 export const AuthForm = (props) => {
     const {
         handleChange,
@@ -16,7 +18,8 @@ export const AuthForm = (props) => {
     //style the error message, don't forget thank you
 
     return(
-        <form onSubmit={handleSubmit}>
+        <AppBar>
+            <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={username}
@@ -32,9 +35,11 @@ export const AuthForm = (props) => {
                 placeholder="Password"
             />
             {/* material ui button needs some work here */}
-            <Button>{ buttonText }</Button>
+            <Button variant="contained" color="secondary">{ buttonText }</Button>
             <button>{ buttonText }</button>
             <p>{errorMessage}</p>
-        </form>
+            </form>
+        </AppBar>
+        
     )
 }

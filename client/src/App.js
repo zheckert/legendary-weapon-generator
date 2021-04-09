@@ -9,6 +9,8 @@ import { Auth } from "./components/authentication/Auth"
 import { UserContext } from "./components/context/UserProvider"
 import { About } from "./components/About"
 
+import AppBar from "@material-ui/core/AppBar"
+
 export const App = () => {
   const { token, logout } = useContext(UserContext)
 

@@ -11,11 +11,11 @@ export const Navbar = () => {
     const { logout } = useContext(UserContext)
 
     return(
-        <div>
+        <AppBar>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/profile">Profile</Link>
             <Button variant="contained" color="primary" onClick={() => logout()}>Logout</Button>
-        </div>
+        </AppBar>
     )
 }
