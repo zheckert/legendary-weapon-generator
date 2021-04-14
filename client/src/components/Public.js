@@ -10,12 +10,16 @@ export const Public = () => {
             <div>
                 <h1>Ye Olde Weapon Generator</h1>
             </div>
-            <div className="weaponDisplay">
-                {weapon}
-            </div>
+            {/* <div className="contentCenterer"> */}
             <div>
-                <Button onClick={() => generator()}>Generate!</Button>
+                <div className="weaponDisplay">
+                    {weapon}
+                </div>
+                <div className="weaponDisplay2">
+                    <Button variant="contained" color="primary" onClick={() => generator()}>Generate!</Button>
+                </div>
             </div>
+            
             {/* This will be used when I integrate the project with an api!!!<div>
                 <button>Feeling crazy?</button>
             </div> */}

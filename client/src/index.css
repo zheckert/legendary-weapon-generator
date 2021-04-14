@@ -24,6 +24,12 @@ code {
   margin: 12px;
   padding: 6px;
 }
+.weaponDisplay2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
 
 .headerClass {
   display: flex;
@@ -49,6 +55,14 @@ code {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.contentCenterer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
 }
 
 @media screen and (max-width: 768px){
