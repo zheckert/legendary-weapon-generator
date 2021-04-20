@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles((theme) => ({
 	appBar: {
 		display: "flex",
-		flexDirection: "row",
+		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "flex-end",
         padding: theme.spacing(1.25)
@@ -28,9 +28,13 @@ export const Navbar = () => {
     return(
         <AppBar position="sticky"  className={(classes.appBar)}>
             <div>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Button variant="contained" color="secondary " onClick={() => logout()}>Logout</Button>
+                <div>
+                    <Link to="/">Home</Link>
+                </div>
+                <div>
+                    <Link to="/about">About</Link>
+                </div>
+                <Button variant="contained" color="secondary" onClick={() => logout()}>Logout</Button>
             </div>
         </AppBar>
         

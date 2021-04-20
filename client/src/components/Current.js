@@ -16,8 +16,8 @@ export const Current = () => {
                 {weapon}
             </div>
             <div className="headerClass">
-                <Button onClick={() => generator()}>Generate</Button>
-                <Button onClick={() => addFavorites(weapon, id)}>Save to Favorites</Button>
+                <Button variant="contained" color="secondary" onClick={() => generator()}>Generate</Button>
+                <Button variant="outlined" color="secondary" onClick={() => addFavorites(weapon, id)}>Save to Favorites</Button>
             </div>
         </div>
     )

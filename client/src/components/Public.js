@@ -7,7 +7,6 @@ export const Public = () => {
     
     return(
         <div div className="publicClass">
-            
             <div>
                 <h1>Ye Olde Weapon Generator</h1>
             </div>
@@ -17,16 +16,13 @@ export const Public = () => {
                     {weapon}
                 </div>
                 <div className="weaponDisplay2">
-                    <Button variant="contained" color="primary" onClick={() => generator()}>Generate!</Button>
+                    <Button variant="contained" color="secondary" onClick={() => generator()}>Generate!</Button>
                 </div>
-            </div>
-            
+            </div>            
             {/* This will be used when I integrate the project with an api!!!<div>
                 <button>Feeling crazy?</button>
             </div> */}
-            
         </div>
-        
     )
 }
 

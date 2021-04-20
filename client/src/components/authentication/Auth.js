@@ -8,7 +8,7 @@ export const Auth = () => {
     const[inputs, setInputs] = useState(initialInputs)
     const[toggle, setToggle] = useState(false)
 
-     const { signup, login, errorMessage, removeAuthError } = useContext(UserContext)
+    const { signup, login, errorMessage, removeAuthError } = useContext(UserContext)
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -44,7 +44,7 @@ export const Auth = () => {
                         buttonText="Sign Up"
                         errorMessage={errorMessage}
                     />
-                    <p onClick={toggleForm}>Already have an account?</p>
+                    {/* <p onClick={toggleForm}>Already have an account?</p> */}
                 </>
             :
                 <>
@@ -55,7 +55,7 @@ export const Auth = () => {
                         buttonText="Login"
                         errorMessage={errorMessage}
                     />
-                    <p onClick={toggleForm}>Don't have an account?</p>
+                    {/* <p onClick={toggleForm}>Don't have an account?</p> */}
                 </>
             }
         </div>

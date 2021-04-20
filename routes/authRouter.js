@@ -38,7 +38,7 @@ authRouter.post("/login", (request, response, next) => {
         }
         if(!user){
             response.status(403)
-            return next( new Error("Hmmm, something's not right. Please try again!"))
+            return next(new Error("Hmmm, something's not right. Please try again!"))
         }
 
         user.checkPassword(request.body.password, (error, isMatch) => {
