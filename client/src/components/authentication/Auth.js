@@ -8,7 +8,7 @@ export const Auth = () => {
     const[inputs, setInputs] = useState(initialInputs)
     const[toggle, setToggle] = useState(false)
 
-    const { signup, login, errorMessage, removeAuthError } = useContext(UserContext)
+    const { signup, login } = useContext(UserContext)
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -28,12 +28,8 @@ export const Auth = () => {
         login(inputs)
     }
 
-    const toggleForm = () => {
-        setToggle(prev => !prev)
-        removeAuthError()
-    }
-
     return(
+        
         <div>
             {toggle ?
                 <>
@@ -41,21 +37,15 @@ export const Auth = () => {
                         handleChange={handleChange}
                         handleSubmit={handleSignup}
                         inputs={inputs}
-                        buttonText="Sign Up"
-                        errorMessage={errorMessage}
                     />
-                    {/* <p onClick={toggleForm}>Already have an account?</p> */}
                 </>
             :
                 <>
                     <AuthForm
                         handleChange={handleChange}
                         handleSubmit={handleLogin}
-                        inputs={inputs}
-                        buttonText="Login"
-                        errorMessage={errorMessage}
+                        inputs={inputs}                        
                     />
-                    {/* <p onClick={toggleForm}>Don't have an account?</p> */}
                 </>
             }
         </div>

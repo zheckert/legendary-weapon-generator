@@ -54,6 +54,9 @@ code {
   border-radius: 2px;
   padding: 10px;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
 
 .publicClass {
@@ -85,9 +88,14 @@ code {
   }
   .gridClass{
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% auto;
     grid-gap: 10px;
     justify-content: center;
     margin: 10px 10px 10px 10px;
   }
+  .headerClass {
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}
 }
