@@ -1,14 +1,22 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "./components/index"
+import { bluntData, bladedData, adjectiveData, bluntTypeData, bladedTypeData, suffixData } from "../index"
 
-//what if we linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
+//what if I linked into an API to find adjectives? Something like this: http://www.datamuse.com/api/
+
+const userAxios = axios.create()
+
+userAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
 
 const Context = React.createContext()
 
 export const ContextProvider = (props) => {
 
-    const [weapons, setWeapons] = useState("")
+    const [weapon, setWeapon] = useState("")
     const [favorites, setFavorites] = useState([])
 
     const generator = () => {
@@ -26,20 +34,20 @@ export const ContextProvider = (props) => {
         let type = (random([true, false])) ? bladed : blunt
         let weapon = (type === blunt) ? bluntType : bladedType
         let final = `${type} ${adjective} ${weapon} of ${suffix}`
-        setWeapons(final)
+        setWeapon(final)
     }
 
     const getWeapons = () => {
-        axios.get("/weapon")
+        userAxios.get("/api/weapon/user")
             .then(response => setFavorites(response.data))
             .catch(error => console.log(error))
     }
 
-    const addFavorites = (addFavorite) => {
-        if(favorites.some(fav => fav.name === weapons)){
+    const addFavorites = (weapon) => {
+        if(favorites.some(fav => fav.name === weapon)){
             alert("Weapon is already a favorite!")
         }else{
-            axios.post("/weapon", {name: addFavorite})
+            userAxios.post("/api/weapon", {name: weapon})
             .then(response => {
                 setFavorites(prevFavorites => [...prevFavorites, response.data])      
             })  
@@ -48,7 +56,7 @@ export const ContextProvider = (props) => {
     }
 
     const deleteWeapon = (weaponId) => {
-        axios.delete(`/weapon/${weaponId}`)
+        userAxios.delete(`/api/weapon/${weaponId}`)
             .then(response => {
                 setFavorites(prevFavorites => prevFavorites.filter(weapon => weapon._id !== weaponId))
             })
@@ -56,7 +64,7 @@ export const ContextProvider = (props) => {
     }
 
     return(
-        <Context.Provider value={{weapons, favorites, generator, getWeapons, addFavorites, deleteWeapon}}>
+        <Context.Provider value={{weapon, favorites, generator, getWeapons, addFavorites, deleteWeapon}}>
             {props.children}
         </Context.Provider>
     )

@@ -1,3 +1,8 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,8 +24,16 @@ code {
   font-size: larger;
   border: 2px solid black;
   border-radius: 2px;
-  height: 50px;
+  height: 69px;
+  width: 500px;
   margin: 12px;
+  padding: 6px;
+}
+.weaponDisplay2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
 }
 
 .headerClass {
@@ -41,4 +54,48 @@ code {
   border-radius: 2px;
   padding: 10px;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.publicClass {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contentCenterer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px){
+  .weaponDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    border: 2px solid black;
+    border-radius: 2px;
+    height: 69px;
+    width: auto;
+    margin: 12px;
+    padding: 3px;
+  }
+  .gridClass{
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+  }
+  .headerClass {
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}
 }
