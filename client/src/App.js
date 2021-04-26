@@ -5,7 +5,7 @@ import { Profile } from "./components/Profile"
 import { Current } from "./components/Current"
 import { Navbar } from "./components/Navbar"
 import { ProtectedRoute } from "./components/authentication/ProtectedRoute"
-import { Auth } from "./components/authentication/Auth"
+import { AuthForm } from "./components/authentication/AuthForm"
 import { UserContext } from "./components/context/UserProvider"
 import { About } from "./components/About"
 
@@ -21,7 +21,7 @@ export const App = () => {
         <Switch>
           <Route
             exact path="/"
-            render={() => token ? <Redirect to="/profile"/> : <Auth/>}
+            render={() => token ? <Redirect to="/profile"/> : <AuthForm/>}
           />
           <ProtectedRoute
             path="/about"
