@@ -62,8 +62,53 @@ export const AuthForm = (props) => {
     }
     
     return(
-            <AppBar position="sticky" className={(classes.appBar)}>            
-                <form>
+        // {toggle ? onSubmit={e => handleLogin(e)} : onSubmit={e => handleSignup(e)}}
+            <AppBar position="sticky" className={(classes.appBar)}>  
+
+            {toggle ?
+                    <form onSubmit={e => handleSignup(e)}>
+                    <input
+                        type="text"
+                        value={inputs.username}
+                        name="username"
+                        onChange={handleChange}
+                        placeholder="Username"
+                    />
+                    <input
+                        type="text"
+                        value={inputs.password}
+                        name="password"
+                        onChange={handleChange}
+                        placeholder="Password"
+                    />
+                        
+                            <Button variant="contained" color="secondary" type="submit">Sign Up</Button>
+                        
+                        <p className={(classes.error)}>{errorMessage}</p>
+                    </form>
+                :
+                    <form onSubmit={e => handleLogin(e)}>
+                    <input
+                        type="text"
+                        value={inputs.username}
+                        name="username"
+                        onChange={handleChange}
+                        placeholder="Username"
+                    />
+                    <input
+                        type="text"
+                        value={inputs.password}
+                        name="password"
+                        onChange={handleChange}
+                        placeholder="Password"
+                    />
+                        
+                            <Button variant="contained" color="secondary" type="submit" >Log In</Button>
+                        
+                        <p className={(classes.error)}>{errorMessage}</p>
+                    </form>
+            }          
+                {/* <form onSubmit={e => handleSignup(e)}>
                     <input
                         type="text"
                         value={inputs.username}
@@ -79,12 +124,12 @@ export const AuthForm = (props) => {
                         placeholder="Password"
                     />
                         {toggle ?
-                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleSignup(inputs)}>Sign Up</Button>
+                            <Button variant="contained" color="secondary" type="submit">Sign Up</Button>
                                 :
-                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleLogin(inputs)}>Log In</Button>
+                            <Button variant="contained" color="secondary" type="submit" >Log In</Button>
                         }
                         <p className={(classes.error)}>{errorMessage}</p>
-                </form>
+                </form> */}
                 <div>
                     {toggle ? 
                         <p onClick={toggleForm}>Already have an account?</p>
