@@ -14,9 +14,9 @@ app.use(express.json())
 app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-// // mongoose.connect(process.env.MONGODB_URI,
 // mongoose.connect("mongodb://localhost:27017/weaponsdb",
-mongoose.connect("mongodb://localhost:27017/newweapons", 
+
+mongoose.connect(process.env.MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -39,9 +39,9 @@ app.use((error, request, response, next) => {
 })
 
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, () => {
     console.log(`The server is running on ${port}`)
