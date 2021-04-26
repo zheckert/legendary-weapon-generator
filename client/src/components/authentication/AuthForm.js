@@ -19,16 +19,20 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const initialInputs = { username: "", password: "" }
-
 export const AuthForm = (props) => {
-    const[inputs, setInputs] = useState(initialInputs)
+    
+    const [inputs, setInputs] = useState({
+        username: "",
+        password: ""
+    })
+
     const[toggle, setToggle] = useState(false)
     const classes = useStyles()
 
     const { signup, login, errorMessage, removeAuthError } = useContext(UserContext)
 
     const handleChange = (e) => {
+        
         const {name, value} = e.target
         setInputs(prevInputs => ({
             ...prevInputs,
@@ -36,12 +40,11 @@ export const AuthForm = (props) => {
         }))
     }
 
-    const {
-        inputs : {
-            username,
-            password
-        }
-    } = props
+    const test = () => {
+        console.log("submitted")
+    }
+
+    const { username, password } = inputs
 
     const toggleForm = () => {
         setToggle(prev => !prev)
@@ -63,22 +66,22 @@ export const AuthForm = (props) => {
                 <form>
                     <input
                         type="text"
-                        value={username}
+                        value={inputs.username}
                         name="username"
                         onChange={handleChange}
                         placeholder="Username"
                     />
                     <input
                         type="text"
-                        value={password}
+                        value={inputs.password}
                         name="password"
                         onChange={handleChange}
                         placeholder="Password"
                     />
                         {toggle ?
-                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleSignup()}>Sign Up</Button>
+                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleSignup(inputs)}>Sign Up</Button>
                                 :
-                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleLogin()}>Log In</Button>
+                            <Button variant="contained" color="secondary" type="submit" onSubmit={() => handleLogin(inputs)}>Log In</Button>
                         }
                         <p className={(classes.error)}>{errorMessage}</p>
                 </form>
