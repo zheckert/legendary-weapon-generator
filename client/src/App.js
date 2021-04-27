@@ -2,14 +2,11 @@ import React, { useContext } from "react"
 import {Switch, Route, Redirect } from "react-router-dom"
 import { Public } from "./components/Public"
 import { Profile } from "./components/Profile"
-import { Current } from "./components/Current"
 import { Navbar } from "./components/Navbar"
 import { ProtectedRoute } from "./components/authentication/ProtectedRoute"
 import { AuthForm } from "./components/authentication/AuthForm"
 import { UserContext } from "./components/context/UserProvider"
 import { About } from "./components/About"
-
-import AppBar from "@material-ui/core/AppBar"
 
 export const App = () => {
   const { token, logout } = useContext(UserContext)

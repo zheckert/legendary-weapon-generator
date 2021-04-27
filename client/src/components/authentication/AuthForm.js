@@ -40,12 +40,6 @@ export const AuthForm = (props) => {
         }))
     }
 
-    const test = () => {
-        console.log("submitted")
-    }
-
-    const { username, password } = inputs
-
     const toggleForm = () => {
         setToggle(prev => !prev)
         removeAuthError()
