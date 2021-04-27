@@ -29,13 +29,13 @@ export const Navbar = () => {
     return(
         <AppBar position="sticky"  className={(classes.appBar)}>
             <div>
-                <Button variant="outlined" color="secondary" href="/" component={Link} className={(classes.buttonStyler)}>
+                <Button variant="contained" color="secondary" href="/" component={Link} className={(classes.buttonStyler)}>
                     Profile
                 </Button>
-                <Button variant="outlined" color="secondary" href="/about" component={Link} className={(classes.buttonStyler)}>
+                <Button variant="contained" color="secondary" href="/about" component={Link} className={(classes.buttonStyler)}>
                     About
                 </Button>
-                <Button variant="contained" color="secondary" onClick={() => logout()}>Logout</Button>
+                <Button variant="contained" color="secondary" className={(classes.buttonStyler)} onClick={() => logout()}>Logout</Button>
             </div>
         </AppBar>
         
