@@ -7,7 +7,7 @@ export const Favorites = () => {
 
     useEffect(() => {
         getWeapons()
-    }, [])
+    })
 
     return(     
         <>   
